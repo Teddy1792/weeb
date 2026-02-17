@@ -70,7 +70,7 @@ export default function Nav() {
 
   return (
     <nav className="fixed top-0 left-0 w-full z-50">
-      <div className="bg-primary/90 flex flex-col items-center mx-auto w-full lg:w-[70%] lg:bg-white/5 pt-4 lg:my-10 px-6 rounded-lg backdrop-blur-xl">
+      <div className="bg-primary/90 flex flex-col items-center mx-auto w-full lg:w-[70%] lg:bg-white/5 py-4 lg:my-10 px-6 rounded-lg backdrop-blur-xl">
         <div className="w-full justify-between flex">
           {/* Logo + liens desktop */}
           <div className="flex w-[20%] justify-between items-center gap-8">
