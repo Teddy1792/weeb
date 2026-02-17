@@ -1,0 +1,15 @@
+0000000000000000000000000000000000000000 17bf05d9626cbb4190783d66c5e10c6b46f86217 Theodore Abitbol <theodore.abitbol@gmail.com> 1758627814 +0200	commit (initial): clean commit
+17bf05d9626cbb4190783d66c5e10c6b46f86217 2cdcc804035981af613aabc9de61a428a6ae159f Theodore Abitbol <theodore.abitbol@gmail.com> 1758631768 +0200	commit: added mobile nav menu
+2cdcc804035981af613aabc9de61a428a6ae159f e264c1a418b0507c9406e9bc62b7776a8458d0b1 Theodore Abitbol <theodore.abitbol@gmail.com> 1758637952 +0200	commit: finished mobile implementation
+e264c1a418b0507c9406e9bc62b7776a8458d0b1 c33c8e96251a38b21368b72f3b244fb40bedd9cc Theodore Abitbol <theodore.abitbol@gmail.com> 1758642104 +0200	commit: finished polishing animations for buttons and links
+c33c8e96251a38b21368b72f3b244fb40bedd9cc 0c08e84560a097568965585132a1bc6810cf566f Theodore Abitbol <theodore.abitbol@gmail.com> 1758642425 +0200	commit: fixed navbar css
+0c08e84560a097568965585132a1bc6810cf566f 67c94d61b667d934877d4e36bf7559fc29abb7bd Theodore Abitbol <theodore.abitbol@gmail.com> 1758643445 +0200	commit: added framer animation on frontpage
+67c94d61b667d934877d4e36bf7559fc29abb7bd cee3f57ee85fc44b6849c037e4983fe69dd9e64e Theodore Abitbol <theodore.abitbol@gmail.com> 1758643964 +0200	commit: added note de suivie
+cee3f57ee85fc44b6849c037e4983fe69dd9e64e f997921150580c3c09cd30789a7dc5444cfc105b Theodore Abitbol <theodore.abitbol@gmail.com> 1760355345 +0200	commit: finished brushing up the css
+f997921150580c3c09cd30789a7dc5444cfc105b a41de64476278b68222efaaf3630832012bfb7f5 Theodore Abitbol <theodore.abitbol@gmail.com> 1760355697 +0200	commit: fixed translation in nav
+a41de64476278b68222efaaf3630832012bfb7f5 d9fdc794b7405083c44cba6a0cff5ddfefab042e Theodore Abitbol <theodore.abitbol@gmail.com> 1760355756 +0200	commit: added readme
+d9fdc794b7405083c44cba6a0cff5ddfefab042e 739a659d14993fd97c9d24d06fa1803735c71764 Theodore Abitbol <theodore.abitbol@gmail.com> 1760357418 +0200	commit: removed note and added googledoc in readme
+739a659d14993fd97c9d24d06fa1803735c71764 f6eeb247a54935bd5fcf8e81c05aa1a716392a89 Theodore Abitbol <theodore.abitbol@gmail.com> 1760359387 +0200	commit: added signin and about pages
+f6eeb247a54935bd5fcf8e81c05aa1a716392a89 2d3d91e553da577ca53b70f4526c0ae63177cb36 Theodore Abitbol <theodore.abitbol@gmail.com> 1760359861 +0200	commit: fixed form width signin
+2d3d91e553da577ca53b70f4526c0ae63177cb36 769b888b0af3a1989cc4001720c3abe8a64de702 Theodore Abitbol <theodore.abitbol@gmail.com> 1760379797 +0200	commit: fixed animation home page
+769b888b0af3a1989cc4001720c3abe8a64de702 bd11a036c231eeb3dd2d4f524e676b390b2c6e6e Theodore Abitbol <theodore.abitbol@gmail.com> 1760438250 +0200	commit: fixed burger benu in nav

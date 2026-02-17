@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: #ffffff;
+  background-color: var(--color-primary);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0; /* tu laisses le body pleine largeur */
+}
+
+@theme {
+  /* couleurs custom pour réutiliser si besoin */
+  --color-black-12: rgba(0, 0, 0, 0.07);
+  --color-black-40: rgba(0, 0, 0, 0.25);
+  --color-secondary: rgb(192, 132, 252); /* violet */
+  --color-secondaryFlashy: rgba(147, 51, 234, 1);
+  --color-primary: rgb(15, 25, 43); /* bleu nuit */
+
+  /* ombres personnalisées */
+  --shadow-custom-1: 0px 0px 15px 0px var(--color-black-12);
+  --shadow-custom-2: 0px 25px 50px -12px var(--color-black-40);
+  --shadow-custom-both: 0px 0px 15px 0px var(--color-black-12),
+    0px 25px 50px -12px var(--color-black-40);
+
+  /* couleur personalisée */
+}
