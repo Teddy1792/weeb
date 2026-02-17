@@ -1,12 +1,12 @@
 import { useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import FormInput from "../components/FormInput";
 import Button from "../components/ButtonCustom";
 import api from "../api/axios";
 
-export default function Signup() {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
+export default function PasswordResetConfirm() {
+  const { uid, token } = useParams();
+  const navigate = useNavigate();
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -26,26 +26,17 @@ export default function Signup() {
     setLoading(true);
 
     try {
-      await api.post("users/register/", {
-        first_name: firstName,
-        last_name: lastName,
-        email,
+      const { data } = await api.post("users/password-reset/confirm/", {
+        uid,
+        token,
         password,
       });
-      setMessage(
-        "Compte cree. Un administrateur doit activer votre profil avant connexion."
-      );
-      setFirstName("");
-      setLastName("");
-      setEmail("");
-      setPassword("");
-      setConfirmPassword("");
+      setMessage(data.detail);
+      setTimeout(() => navigate("/login"), 1200);
     } catch (err) {
-      const firstError = Object.values(err.response?.data || {})[0];
       setError(
-        Array.isArray(firstError)
-          ? firstError[0]
-          : firstError || "Impossible de creer le compte."
+        err.response?.data?.detail ||
+          "Le lien est invalide ou le mot de passe est trop faible."
       );
     } finally {
       setLoading(false);
@@ -55,44 +46,16 @@ export default function Signup() {
   return (
     <div className="flex flex-col w-[90%] lg:w-[70%] mx-auto justify-center lg:p-8 gap-8">
       <h1 className="text-4xl lg:text-3xl font-bold text-center">
-        Inscription
+        Nouveau mot de passe
       </h1>
-      <p className="text-center mb-8 text-xl lg:text-normal">
-        Créez votre compte pour accéder à votre espace personnel et profiter de
-        toutes les fonctionnalités.
-      </p>
 
       <form
         onSubmit={handleSubmit}
         className="w-[300px] lg:w-[500px] mx-auto border bg-secondary/5 border-secondary text-secondary rounded-lg py-6 px-8 mb-10 flex flex-col gap-8"
       >
         <FormInput
-          name="firstName"
-          placeholder="Prenom"
-          type="text"
-          value={firstName}
-          onChange={(e) => setFirstName(e.target.value)}
-          required
-        />
-        <FormInput
-          name="lastName"
-          placeholder="Nom"
-          type="text"
-          value={lastName}
-          onChange={(e) => setLastName(e.target.value)}
-          required
-        />
-        <FormInput
-          name="email"
-          placeholder="Email"
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        <FormInput
           name="password"
-          placeholder="Mot de passe"
+          placeholder="Nouveau mot de passe"
           passwordToggle
           value={password}
           onChange={(e) => setPassword(e.target.value)}
@@ -109,7 +72,7 @@ export default function Signup() {
         {message && <p className="text-green-500 text-sm">{message}</p>}
         {error && <p className="text-red-500 text-sm">{error}</p>}
         <Button
-          text={loading ? "Inscription..." : "S'inscrire"}
+          text={loading ? "Mise a jour..." : "Mettre a jour"}
           type="submit"
           disabled={loading}
         />

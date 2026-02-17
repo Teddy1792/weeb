@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import FormInput from "../components/FormInput";
 import Button from "../components/ButtonCustom";
@@ -89,6 +90,12 @@ export default function Login() {
         />
 
         {error && <p className="text-red-500 text-sm">{error}</p>}
+        <Link
+          to="/reset-password"
+          className="text-sm text-secondaryFlashy hover:underline text-center"
+        >
+          Mot de passe oublie ?
+        </Link>
 
         <Button
           text={loading ? "Connexion..." : "Connexion"}

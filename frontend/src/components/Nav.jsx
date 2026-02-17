@@ -46,12 +46,10 @@ export default function Nav() {
     };
 
     void validateSession();
-    window.addEventListener("storage", syncAuthState);
     window.addEventListener("auth-change", syncAuthState);
 
     return () => {
       isMounted = false;
-      window.removeEventListener("storage", syncAuthState);
       window.removeEventListener("auth-change", syncAuthState);
     };
   }, []);
@@ -96,6 +94,14 @@ export default function Nav() {
               >
                 Blog
               </Link>
+              {isAuthenticated && (
+                <Link
+                  to="/add-article"
+                  className="text-xl hidden lg:flex hover:scale-110 transition ease-in-out duration-300 cursor-pointer whitespace-nowrap"
+                >
+                  Ajouter
+                </Link>
+              )}
             </div>
           </div>
 
@@ -163,6 +169,14 @@ export default function Nav() {
           >
             Blog
           </Link>
+          {isAuthenticated && (
+            <Link
+              to="/add-article"
+              className="text-xl hover:scale-110 transition ease-in-out duration-300"
+            >
+              Ajouter
+            </Link>
+          )}
           {isAuthenticated ? (
             <button
               type="button"

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Article from "../components/Article";
+import api from "../api/axios";
 
 export default function Blog() {
   const [articles, setArticles] = useState([]);
@@ -9,13 +10,9 @@ export default function Blog() {
   useEffect(() => {
     let isMounted = true;
 
-    fetch("http://127.0.0.1:8000/api/blog/posts/")
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error("Impossible de charger les articles.");
-        }
-        return res.json();
-      })
+    api
+      .get("blog/posts/")
+      .then((res) => res.data)
       .then((data) => {
         if (!isMounted) {
           return;

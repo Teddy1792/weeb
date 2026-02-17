@@ -28,6 +28,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+FRONTEND_BASE_URL = "http://localhost:5173"
+DEFAULT_FROM_EMAIL = "no-reply@weeb.local"
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
 
 # Application definition
 
