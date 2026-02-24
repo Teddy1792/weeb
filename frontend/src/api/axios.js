@@ -21,7 +21,13 @@ const api = axios.create({
 });
 
 api.interceptors.request.use((config) => {
-  if (accessToken) {
+  const requestUrl = config.url || "";
+  const isTokenEndpoint =
+    requestUrl.includes("token/") ||
+    requestUrl.includes("token/refresh/") ||
+    requestUrl.includes("token/logout/");
+
+  if (accessToken && !isTokenEndpoint) {
     config.headers.Authorization = `Bearer ${accessToken}`;
   } else if (config.headers.Authorization) {
     delete config.headers.Authorization;
@@ -57,7 +63,7 @@ api.interceptors.response.use(
         return api(originalRequest);
       } catch (refreshError) {
         clearAccessToken();
-        window.dispatchEvent(new Event("auth-change"));
+        window.dispatchEvent(new Event("auth-logout"));
         return Promise.reject(refreshError);
       }
     }

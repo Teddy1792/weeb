@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import FormInput from "../components/FormInput";
 import Button from "../components/ButtonCustom";
-import api, { hasAccessToken, setAccessToken } from "../api/axios";
+import api, { setAccessToken } from "../api/axios";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -16,14 +16,8 @@ export default function Login() {
     let isMounted = true;
 
     const restoreSession = async () => {
-      if (hasAccessToken()) {
-        navigate("/blog");
-        return;
-      }
-
       try {
-        const { data } = await api.post("token/refresh/");
-        setAccessToken(data.access);
+        await api.get("users/me/");
         if (isMounted) {
           navigate("/blog");
         }

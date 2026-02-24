@@ -1,11 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Button from "../components/ButtonCustom";
-import api, {
-  clearAccessToken,
-  hasAccessToken,
-  setAccessToken,
-} from "../api/axios";
+import api, { clearAccessToken } from "../api/axios";
 
 export default function Nav() {
   const [isOpen, setOpen] = useState(false);
@@ -16,18 +12,6 @@ export default function Nav() {
     let isMounted = true;
 
     const validateSession = async () => {
-      if (!hasAccessToken()) {
-        if (isMounted) {
-          try {
-            const { data } = await api.post("token/refresh/");
-            setAccessToken(data.access);
-          } catch {
-            setIsAuthenticated(false);
-            return;
-          }
-        }
-      }
-
       try {
         await api.get("users/me/");
         if (isMounted) {
@@ -45,12 +29,20 @@ export default function Nav() {
       void validateSession();
     };
 
+    const handleAuthLogout = () => {
+      if (isMounted) {
+        setIsAuthenticated(false);
+      }
+    };
+
     void validateSession();
     window.addEventListener("auth-change", syncAuthState);
+    window.addEventListener("auth-logout", handleAuthLogout);
 
     return () => {
       isMounted = false;
       window.removeEventListener("auth-change", syncAuthState);
+      window.removeEventListener("auth-logout", handleAuthLogout);
     };
   }, []);
 

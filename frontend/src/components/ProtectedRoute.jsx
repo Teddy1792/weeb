@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
-import api, { setAccessToken } from "../api/axios";
+import api from "../api/axios";
 
 export default function ProtectedRoute({ children }) {
   const [isAllowed, setIsAllowed] = useState(null);
@@ -10,8 +10,6 @@ export default function ProtectedRoute({ children }) {
 
     const validate = async () => {
       try {
-        const { data } = await api.post("token/refresh/");
-        setAccessToken(data.access);
         await api.get("users/me/");
         if (isMounted) {
           setIsAllowed(true);

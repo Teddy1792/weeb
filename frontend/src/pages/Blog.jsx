@@ -22,7 +22,13 @@ export default function Blog() {
       })
       .catch((err) => {
         if (isMounted) {
-          setError(err.message);
+          const message =
+            err.response?.status === 401
+              ? "Votre session a expire. Reconnectez-vous pour continuer."
+              : err.response?.status === 403
+                ? "Vous n'avez pas l'autorisation d'acceder a cette ressource."
+                : "Impossible de charger les articles.";
+          setError(message);
         }
       })
       .finally(() => {
