@@ -6,6 +6,7 @@ from django.utils.encoding import force_bytes, force_str
 from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
 from rest_framework import status
 from rest_framework.generics import CreateAPIView, RetrieveAPIView
+from rest_framework.authentication import SessionAuthentication
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -59,6 +60,7 @@ def clear_refresh_cookie(response):
 
 class CookieTokenObtainPairView(APIView):
     permission_classes = [AllowAny]
+    authentication_classes = [SessionAuthentication]
 
     def post(self, request):
         serializer = TokenObtainPairSerializer(data=request.data)
@@ -74,6 +76,7 @@ class CookieTokenObtainPairView(APIView):
 
 class CookieTokenRefreshView(APIView):
     permission_classes = [AllowAny]
+    authentication_classes = [SessionAuthentication]
 
     def post(self, request):
         refresh = request.COOKIES.get(settings.JWT_REFRESH_COOKIE_NAME)
@@ -99,6 +102,7 @@ class CookieTokenRefreshView(APIView):
 
 class LogoutView(APIView):
     permission_classes = [AllowAny]
+    authentication_classes = [SessionAuthentication]
 
     def post(self, request):
         response = Response(status=status.HTTP_204_NO_CONTENT)
