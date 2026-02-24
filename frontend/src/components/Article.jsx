@@ -13,6 +13,7 @@ export default function Article({ article }) {
       </Link>
       <div className="text-sm opacity-80">
         {createdAt && <span>Publié le {createdAt}</span>}
+        {article?.author_name && <p>Auteur: {article.author_name}</p>}
       </div>
       <p className="text-base leading-relaxed whitespace-pre-line">
         {content.slice(0, 220)}
