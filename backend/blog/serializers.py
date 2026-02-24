@@ -7,7 +7,7 @@ class PostSerializer(serializers.ModelSerializer):
 
     def get_author_name(self, obj):
         full_name = f"{obj.author.first_name} {obj.author.last_name}".strip()
-        return full_name or obj.author.email
+        return full_name or "Auteur inconnu"
 
     class Meta:
         model = Post
