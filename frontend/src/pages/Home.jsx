@@ -1,12 +1,20 @@
 import { motion } from "framer-motion";
 import Button from "../components/ButtonCustom";
+import arrowRight from "../assets/arrow-right.svg";
+import desktopIllustration from "../assets/Desktop1.svg";
+import logo1 from "../assets/logo1.svg";
+import logo2 from "../assets/logo2.svg";
+import logo3 from "../assets/logo3.svg";
+import logo4 from "../assets/logo4.svg";
+import logo5 from "../assets/logo5.svg";
+import squaresIllustration from "../assets/squares.svg";
 
 const logos = [
-  { id: 1, src: "/logo1.svg", alt: "Logo 1" },
-  { id: 2, src: "/logo2.svg", alt: "Logo 2" },
-  { id: 3, src: "/logo3.svg", alt: "Logo 3" },
-  { id: 4, src: "/logo4.svg", alt: "Logo 4" },
-  { id: 5, src: "/logo5.svg", alt: "Logo 5" },
+  { id: 1, src: logo1, alt: "Logo 1" },
+  { id: 2, src: logo2, alt: "Logo 2" },
+  { id: 3, src: logo3, alt: "Logo 3" },
+  { id: 4, src: logo4, alt: "Logo 4" },
+  { id: 5, src: logo5, alt: "Logo 5" },
 ];
 
 export default function Home() {
@@ -36,7 +44,7 @@ export default function Home() {
 
       {/* Première image : arrive de la gauche */}
       <motion.img
-        src="/Desktop1.svg"
+        src={desktopIllustration}
         alt="Illustration du desktop"
         className="mx-auto"
         initial={{ x: -200, opacity: 0 }}
@@ -80,7 +88,7 @@ export default function Home() {
               Explorer les ressources
             </p>
             <img
-              src="/arrow-right.svg"
+              src={arrowRight}
               alt="fleche vers la droite"
               className="group-hover:rotate-90 transition ease-in-out duration-300"
             />
@@ -89,7 +97,7 @@ export default function Home() {
 
         {/* Deuxième image : arrive de la droite */}
         <motion.img
-          src="/Desktop1.svg"
+          src={desktopIllustration}
           alt="Illustration du desktop"
           className="lg:w-[60%]"
           initial={{ x: 200, opacity: 0 }}
@@ -102,7 +110,7 @@ export default function Home() {
       <div className="flex flex-col-reverse lg:flex-row">
         {/* Troisième image : arrive de la gauche */}
         <motion.img
-          src="/squares.svg"
+          src={squaresIllustration}
           alt="carrés"
           className="lg:w-[40%]"
           initial={{ x: -200, opacity: 0 }}
@@ -129,7 +137,7 @@ export default function Home() {
               Lire les articles récents
             </p>
             <img
-              src="/arrow-right.svg"
+              src={arrowRight}
               alt="fleche vers la droite"
               className="group-hover:rotate-90 transition ease-in-out duration-300"
             />

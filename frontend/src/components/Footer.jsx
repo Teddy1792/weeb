@@ -1,3 +1,9 @@
+import facebookIcon from "../assets/facebook.svg";
+import instagramIcon from "../assets/instagram.svg";
+import linkedinIcon from "../assets/linkedin.svg";
+import twitterIcon from "../assets/twitter.svg";
+import youtubeIcon from "../assets/youtube.svg";
+
 const footerLinks = [
   {
     title: "Product",
@@ -38,11 +44,11 @@ const footerLinks = [
 ];
 
 const socialLinks = [
-  { name: "YouTube", src: "/youtube.svg", alt: "YouTube", href: "#" },
-  { name: "Facebook", src: "/facebook.svg", alt: "Facebook", href: "#" },
-  { name: "X", src: "/twitter.svg", alt: "X (Twitter)", href: "#" },
-  { name: "Instagram", src: "/instagram.svg", alt: "Instagram", href: "#" },
-  { name: "LinkedIn", src: "/linkedin.svg", alt: "LinkedIn", href: "#" },
+  { name: "YouTube", src: youtubeIcon, alt: "YouTube", href: "#" },
+  { name: "Facebook", src: facebookIcon, alt: "Facebook", href: "#" },
+  { name: "X", src: twitterIcon, alt: "X (Twitter)", href: "#" },
+  { name: "Instagram", src: instagramIcon, alt: "Instagram", href: "#" },
+  { name: "LinkedIn", src: linkedinIcon, alt: "LinkedIn", href: "#" },
 ];
 
 export default function Footer() {

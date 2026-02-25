@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Button from "../components/ButtonCustom";
 import api, { clearAccessToken } from "../api/axios";
+import burgerMenuIcon from "../assets/burger_menu.svg";
 
 export default function Nav() {
   const [isOpen, setOpen] = useState(false);
@@ -126,7 +127,7 @@ export default function Nav() {
             className="lg:hidden hover:scale-110 transition ease-in-out duration-300 cursor-pointer"
           >
             <img
-              src="/burger_menu.svg"
+              src={burgerMenuIcon}
               alt="menu"
               className={`${
                 isOpen ? "rotate-90" : "rotate-0"
